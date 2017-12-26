@@ -1,0 +1,22 @@
+<%= form_for @post do |f| %>
+
+<p><%= f.label :category %></p>
+<%= select_tag 'category_id', options_from_collection_for_select(Category.all, 'id', 'name')%>
+
+<div class="form-group">
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+</div>
+
+
+
+<div class="form-group">
+  <%= f.label :body %>
+  <%= f.text_area :body, :rows => 40, :cols => 120 %>
+</div>
+
+<div class="form-group">
+<%= f.submit 'Зберегти', class: "btn btn-primary active btn-lg" %>
+<%= link_to 'Назад', :back, class: 'btn btn-outline-secondary'%>
+</div>
+<%end%>
