@@ -1,3 +1,21 @@
 <h1><%= @post.title%></h1>
 <%= @post.body %>
 
+<% @comments.each do |comment|%>
+<hr>
+<p><%=comment.comtext%></p>
+<p>Create at: <%= comment.created_at %></p><hr>
+<%end%>
+
+<%= form_for :postscomment, url: post_postscomments_path(@post.id) do |post| %>
+
+<% if flash[:notice] %>
+  <div class="notice"> <%= flash[:notice] %> </div>
+<% end %>
+<div align="center">
+<p><%= post.label "Write Comment" %></p>
+<%= post.text_area :comtext, cols: 10, rows: 5 %><br />
+<br/>
+<p><%= post.submit "Send", class: "btn btn-primary active"%></p><br/>
+</div>
+<%end%>

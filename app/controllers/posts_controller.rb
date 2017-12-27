@@ -33,7 +33,7 @@ class PostsController < ApplicationController
   end
 
   def show
-   
+   @comments=Postscomment.where(post_id: @post.id)
    
   end
 
