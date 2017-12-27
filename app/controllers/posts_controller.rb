@@ -7,10 +7,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    if current_user.function == "Editor"  
+    if current_user.function == "Redactor"  
      params[:post][:category_id]=params[:category_id]
-        @apost = current_user.posts.build(post_params)
-        if @apost.save
+        @post = current_user.posts.build(post_params)
+        if @post.save
           redirect_to root_path
         else
           render 'new'

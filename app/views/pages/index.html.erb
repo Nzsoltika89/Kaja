@@ -1,4 +1,9 @@
 <h1 align="center">Student Povar </h1>
+<div class="row" align="center">
+	<% @posts.each do |post| %>
+	 <%= render 'posts/example', post:post %>
+	 <% end %>
+</div>
 
     
 
