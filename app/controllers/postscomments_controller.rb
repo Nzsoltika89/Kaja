@@ -4,7 +4,7 @@ class PostscommentsController < ApplicationController
     params[:postscomment][:user_id] = current_user.id
     @postscomment = Postscomment.create(postscomments_params)
     if @postscomment.save
-      redirect_to post_path(params[:posts_id])
+      redirect_to post_path(params[:post_id])
     else
       @postscomment.errors.full_messages.each do |msg|
         @msg = msg
@@ -16,7 +16,7 @@ class PostscommentsController < ApplicationController
 
   private
   def postscomments_params
-    params.require(:postscomment).permit(:user_id, :posts_id, :comtext)
+    params.require(:postscomment).permit(:user_id, :post_id, :comtext)
   
   end
 
