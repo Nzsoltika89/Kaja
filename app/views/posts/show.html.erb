@@ -1,6 +1,6 @@
 <h1><%= @post.title%></h1>
-<%= @post.body %>
-
+<%= sanitize @post.body %>
+<%= tinymce %> <br/>
 <% @comments.each do |comment|%>
 <hr>
 <p><%=comment.comtext%></p>
